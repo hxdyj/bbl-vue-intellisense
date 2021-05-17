@@ -1,0 +1,29 @@
+{
+  "name": "bbl-vue-intellisense",
+  "version": "0.0.1",
+  "author": "hxdyj",
+  "scripts": {
+    "test": "node ./cli.js --input ./test --output vetur --recursive"
+  },
+  "dependencies": {
+    "@vue-intellisense/scripts": "^0.3.0",
+    "case-anything": "^1.1.2",
+    "chalk": "^4.1.0",
+    "is-what": "^3.14.1",
+    "lodash": "^4.17.21",
+    "log-symbols": "^4.0.0",
+    "meow": "^8.1.2",
+    "ora": "^5.3.0",
+    "vue-docgen-api": "^4.35.0"
+  },
+  "main": "cli.js",
+  "bin": {
+    "vue-int": "cli.js"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "cli.js"
+  ]
+}
