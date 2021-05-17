@@ -8,53 +8,60 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, PropType, reactive, ref, toRefs } from '@vue/runtime-core'
-type ButtonType = 'white' | 'blue'
-
+import {
+  defineComponent,
+  onMounted,
+  PropType,
+  reactive,
+  ref,
+  toRefs,
+} from "@vue/runtime-core";
+type ButtonType = "white" | "blue";
 export default defineComponent({
   inheritAttrs: false,
-  name: 'KeButton',
+  name: "KeButton",
   props: {
     /**
      * Button类型： white | blue
      */
     type: {
       type: String as PropType<ButtonType>,
-      default: () => 'white',
+      default: () => "white",
     },
   },
   setup($props) {
     const data = reactive({
       typeStyle: {
         white: {
-          background: 'white',
-          color: '#2B85FA',
+          background: "white",
+          color: "#2B85FA",
         },
         blue: {
           background: `linear-gradient(228deg, #36E6FF 0%, #0067EB 100%)`,
-          color: 'white',
+          color: "white",
         },
       },
-    })
+    });
 
-    let compRef = ref()
-    let innerRef = ref()
-    let bgRef = ref()
+    let compRef = ref();
+    let innerRef = ref();
+    let bgRef = ref();
     onMounted(() => {
-      let innerStyle = getComputedStyle(innerRef.value)
-      compRef.value.style.width = innerStyle.width
-      compRef.value.style.height = innerStyle.height
+      let innerStyle = getComputedStyle(innerRef.value);
+      compRef.value.style.width = innerStyle.width;
+      compRef.value.style.height = innerStyle.height;
 
-      let borderRadius = parseFloat(innerStyle.height.replace('px', '')) / 2 + 'px'
-      compRef.value.style.borderRadius = borderRadius
-      innerRef.value.style.borderRadius = borderRadius
+      let borderRadius =
+        parseFloat(innerStyle.height.replace("px", "")) / 2 + "px";
+      compRef.value.style.borderRadius = borderRadius;
+      innerRef.value.style.borderRadius = borderRadius;
       if (bgRef.value) {
-        bgRef.value.style.borderRadius = borderRadius
+        bgRef.value.style.borderRadius = borderRadius;
       }
-    })
-    return { ...toRefs(data), compRef, innerRef, bgRef }
+    });
+    return { ...toRefs(data), compRef, innerRef, bgRef };
   },
-})
+});
 </script>
 
 <style lang="scss" scoped>
@@ -84,7 +91,11 @@ export default defineComponent({
     left: 8px;
     top: 8px;
     position: absolute;
-    background: linear-gradient(228deg, rgba(54, 232, 255, 0.5) 0%, rgba(0, 102, 235, 0.5) 100%);
+    background: linear-gradient(
+      228deg,
+      rgba(54, 232, 255, 0.5) 0%,
+      rgba(0, 102, 235, 0.5) 100%
+    );
     filter: blur(5px);
     z-index: 1;
   }

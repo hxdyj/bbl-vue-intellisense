@@ -6,6 +6,8 @@ const chalk = require('chalk')
 const ora = require('ora')
 const { isFullString } = require('is-what')
 const { generateVeturFiles } = require('./lib/script.js')
+const copyFileToVeturPlugin = require('./utils/cpVeturFile.js')
+
 
 const cli = meow(
   `
@@ -77,11 +79,9 @@ if (!isFullString(output)) {
 const spinner = ora(`Generating files`).start()
 ;(async () => {
   await generateVeturFiles(input, output, { recursive, alias })
-
   spinner.stop()
-
+  await copyFileToVeturPlugin()
   console.log(`${logSymbols.success} ${chalk.bold('done')}!`)
-
   process.exit(0)
 })().catch((error) => {
   spinner.stop()

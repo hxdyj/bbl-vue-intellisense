@@ -8,16 +8,15 @@
   "dependencies": {
     "case-anything": "^1.1.2",
     "chalk": "^4.1.0",
+    "exec-sh": "^0.4.0",
     "is-what": "^3.14.1",
     "lodash": "^4.17.21",
     "log-symbols": "^4.0.0",
     "meow": "^8.1.2",
-    "ora": "^5.3.0",
-    "vue-docgen-api": "^4.35.0",
     "merge-anything": "^4.0.1",
-    "path-to-prop": "^1.0.0"
-
-
+    "ora": "^5.3.0",
+    "path-to-prop": "^1.0.0",
+    "vue-docgen-api": "^4.35.0"
   },
   "main": "cli.js",
   "bin": {
@@ -28,8 +27,8 @@
   },
   "files": [
     "cli.js",
-    "lib"
+    "lib",
+    "utils"
   ],
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
