@@ -3,7 +3,8 @@
   "version": "0.0.6",
   "author": "hxdyj",
   "scripts": {
-    "test": "node ./cli.js --input ./test --output vetur --recursive"
+    "test": "node ./cli.js --input ./test --output vetur --recursive",
+    "vetur": "vue-int --input ./test --output vetur --recursive"
   },
   "dependencies": {
     "case-anything": "^1.1.2",

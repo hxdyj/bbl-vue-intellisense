@@ -17,6 +17,7 @@ import {
   toRefs,
 } from "@vue/runtime-core";
 type ButtonType = "white" | "blue";
+
 export default defineComponent({
   inheritAttrs: false,
   name: "KeButton",
