@@ -1,10 +1,11 @@
+#!/usr/bin/env node
 'use strict'
 const meow = require('meow')
 const logSymbols = require('log-symbols')
 const chalk = require('chalk')
 const ora = require('ora')
 const { isFullString } = require('is-what')
-const { generateVeturFiles } = require('./lib/script')
+const { generateVeturFiles } = require('./lib/script.js')
 
 const cli = meow(
   `
