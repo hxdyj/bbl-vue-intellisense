@@ -1,6 +1,6 @@
 {
   "name": "bbl-vue-intellisense",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "author": "hxdyj",
   "scripts": {
     "test": "node ./cli.js --input ./test --output vetur --recursive",

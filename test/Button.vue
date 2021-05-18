@@ -18,6 +18,7 @@ import {
 } from "@vue/runtime-core";
 type ButtonType = "white" | "blue";
 
+app.directive("permission");
 export default defineComponent({
   inheritAttrs: false,
   name: "KeButton",
