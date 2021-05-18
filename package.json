@@ -31,5 +31,10 @@
     "lib",
     "utils"
   ],
-  "devDependencies": {}
+  "devDependencies": {},
+  "vetur": {
+    "tags": "vetur/tags.json",
+    "attributes": "vetur/attributes.json",
+    "globalAttributes": "vetur/globalAttributes.json"
+  }
 }
