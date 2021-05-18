@@ -1,4 +1,9 @@
 const shell = require('exec-sh').promise;
+const path = require('path')
+
+
+import { existsSync } from 'fs';
+
 
 module.exports = async function copyFileToVeturPlugin(){
     let findVsCode = await shell('ls -a ~ | grep .vscode',true)
@@ -18,8 +23,23 @@ module.exports = async function copyFileToVeturPlugin(){
         veturName = findVetur.stdout.replace(/\n/g,'')
         console.log(veturName);
     }
-  
-    const rmFile = await shell(`rm -rf ~/${vscodeName}/extensions/${veturName}/dist/vueMain.js`)
-  
-    const cpFile = await shell(`cp ./lib/vueMain.js ~/${vscodeName}/extensions/${veturName}/dist`)
+    const copyToPath = `~/${vscodeName}/extensions/${veturName}/dist`
+
+    const rmFile = await shell(`rm -rf ${copyToPath}/vueMain.js`)
+    
+
+    let detectRelativeNodeModulesPath = `${path.resolve('./node_modules/bbl-vue-intellisense/lib/vueMain.js')}`
+    let relativeNodeModulesExist = await existsSync(detectRelativeNodeModulesPath)
+    if(relativeNodeModulesExist){
+        console.log('detect at Relative NodeModules.');
+        const cpFile = await shell(`cp ${detectRelativeNodeModulesPath} ${copyToPath}`)
+        return true
+    }
+
+    
+
+
+
+
+
 }
